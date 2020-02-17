@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <span :style="{fontSize: '50px', background: bgc}">{{message}}</span>
+        <!-- 注意：此处的bgc 是一个变量  vue会将其当做变量来处理 会在data 中去查找此变量  -->
+        <!-- 使用函数形式代码更加简洁 同样实现 -->
+        <span :style="getStyle()">{{message}}</span>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello everyone!',
+                bgc: 'skyblue', //动态绑定 组件化开发常用 使用公共组件时
+
+            },
+            methods: {
+                getStyle: function () {
+                    return {fontSize: '50px', background: this.bgc};
+                }
+            }
+        })
+    </script>
+</body>
+</html>

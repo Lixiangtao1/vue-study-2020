@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active  { color: red;}
+    </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <!-- 需求： 点击列表 给其当前点击行变色 -->
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in names" @click="change(index)" :class="{active: index == current}">{{item}}</li>
+            <!-- 动态绑定的class类是一个对象  键值对的属性值为boolean类型 -->
+        </ul>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                // 假数据
+                names: ['张三','李四','王五','孙七'],
+                current: 0
+                // 默认第一个背景色存在
+            },
+            methods: {
+                change: function (index) {
+                    this.current = index
+                }
+            }
+        })
+    </script>
+</body>
+</html>

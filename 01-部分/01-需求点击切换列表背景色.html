@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active{
+            color: aqua;
+        }
+    </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in message" :class="{active: index == current}" @click="change(index)">{{index}}. {{item}}</li>
+            <!-- 通过判断当前索引 与 currentvain变量的真假 来给当前项是否添加类active -->
+        </ul>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: ['哈哈哈', '嘿嘿嘿', 'hello world'],
+                current: 0
+            },
+            methods: {
+                change: function (index) {
+                    this.current = index; //current 是个变量, 其值为当前点击事件的参数,即为当前项的index
+                }
+            }
+        })
+    </script>
+</body>
+</html>

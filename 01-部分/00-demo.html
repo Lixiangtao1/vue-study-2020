@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--dropzone图片上传的css-->
+    <link href="https://cdn.bootcss.com/dropzone/5.5.1/dropzone.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/dropzone/5.5.1/basic.css" rel="stylesheet">
+    <!--wangEditor富文本编辑器-->
+    <link href="https://cdn.bootcss.com/wangEditor/10.0.13/wangEditor.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <！--dropzone图片上传的js-->
+    <script src="https://cdn.bootcss.com/dropzone/5.5.1/dropzone.js"></script>
+    <!--wangEditor富文本编辑器的js-->
+    <script src="https://cdn.bootcss.com/wangEditor/10.0.13/wangEditor.js"></script>
+    <![endif]-->
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <td colspan="9" align="right">
+                <button class="btn btn-info" id="addProBtn">添加商品</button>
+            </td>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>所属分类</th>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>实际售价</th>
+            <th>商品卖点</th>
+            <th>商品描述</th>
+            <th>商品图片</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="product:${products}">
+            <td th:text="${product.pid}">ID</td>
+            <td th:text="${product.getTypeName()}">所属分类</td>
+            <td th:text="${product.pname}">商品名称</td>
+            <td th:text="${product.price}">商品价格</td>
+            <td th:text="${product.salePrice}">实际售价</td>
+            <td th:text="${product.salePoint}">商品卖点</td>
+            <td th:text="${product.intro}">商品描述</td>
+            <td><img th:src="${product.pimage}" width="100" height="100"></td>
+            <td>
+                <button class="btn btn-primary btn-sm">编辑</button>
+                <button class="btn btn-danger btn-sm" th:onclick="|delProduct(${product.pid})|">删除</button>
+            </td>
+        </tr>
+    </table>
+
+    <!-- <div class="hang">
+        <div class="col-lg-12" align="right">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li th:each="page:${pageInfo.navigatepageNums}"><a href="#"><span th:text="${page}"></span></a></li>
+
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div> -->
+    <div class="block">
+        <span class="demonstration">分页</span>
+        <el-pagination
+          layout="prev, pager, next"
+          :total="50">
+        </el-pagination>
+      </div>
+
+</div>
+<!--这是添加商品的模态框-->
+<div class="modal fade" id="addProModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加商品</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="addProduct" action="/addProducts" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label for="pname" class="col-sm-2 control-label">商品名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="pname" name="pname" placeholder="商品名称">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="typeId" class="col-sm-2 control-label">所属分类</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="typeId" name="typeId">
+                                <option value="1">电视盒子</option>
+                                <option value="2">OPPO</option>
+                                <option value="3">HUAWEI</option>
+                                <option value="4">APPLE</option>
+                                <option value="5">小米</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price" class="col-sm-2 control-label">商品价格</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="price" name="price" placeholder="商品价格">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="salePrice" class="col-sm-2 control-label">实际售价</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="salePrice" name="salePrice" placeholder="实际售价">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="salePoint" class="col-sm-2 control-label">商品卖点</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="salePoint" name="salePoint" placeholder="商品卖点">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dropz" class="col-sm-2 control-label">商品图片</label>
+                        <div class="col-sm-10">
+                            <div id="dropz" class="dropzone"></div><!--启用Dropzone的HTML-->
+                            <input type="hidden" id="pimage" name="pimage"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editor" class="col-sm-2 control-label">商品描述</label>
+                        <div class="col-sm-10">
+                            <div id="editor"></div>
+                            <input type="hidden" id="intro" name="intro"/>
+                            <!--<textarea class="form-control" rows="3" id="intro" name="intro"></textarea>-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="addOneProduct">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+<script>
+    $("#addProBtn").click(function () {
+        $("#addProModal").modal({
+            backdrop:false,
+            keyboard:true
+        });
+    });
+
+    /*启用富文本编辑器*/
+    var E = window.wangEditor;
+    var editor = new E('#editor');
+    // 配置服务器端地址
+    editor.customConfig.uploadImgServer = '/upload'
+    editor.customConfig.uploadFileName = 'dropzFile'
+    editor.create();
+
+    $("#addOneProduct").click(function () {
+        //表单提交前需要获得编辑器中的内容存入表单中一起提交
+        $("#intro").val(editor.txt.html());
+
+        $("#addProduct").submit()/*点击确认按钮提交表单*/
+    });
+    /*Dropzone图片上传JavaScript的启用代码*/
+    var myDropzone = new Dropzone("#dropz", {
+        url: "/upload",
+        dictDefaultMessage: '拖动文件至此或者点击上传', // 设置默认的提示语句
+        paramName: "dropzFile", // 传到后台的参数名称
+        init: function () {
+            this.on("success", function (file, data) {
+                var imagePath = data.data;
+                /*将上传后的图片路径放入表单中*/
+                $("#pimage").val(imagePath);
+            });
+        }
+    });
+    
+    /***删除商品***/
+    function delProduct(pid) {
+        //同步删除
+        location.href="/delProduct?pid="+pid;
+    }
+    
+
+</script>
+
+</body>
+</html>
