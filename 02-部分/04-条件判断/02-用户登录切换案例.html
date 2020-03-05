@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+  <div id="app">
+    <span v-if="isShow">
+      <label for="user">用户账号:</label>
+      <!-- label中 for属性的作用:点击label使input获取焦点 -->
+      <input type="text" id="user" placeholder="请输入用户账号" key="user">
+    </span>
+    <span v-else>
+      <label for="user">用户邮箱:</label>
+      <input type="text" id="email" placeholder="请输入用户邮箱" key="email">
+    </span>
+    <button @click="change">登录类型切换</button>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        isShow: true
+      },
+      methods: {
+        change: function () {
+          this.isShow = !this.isShow
+        }
+      },
+    })
+  </script>
+</body>
+</html>

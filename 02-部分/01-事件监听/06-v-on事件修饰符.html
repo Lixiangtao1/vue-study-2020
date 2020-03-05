@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div @click="divclick">
+      aaa
+      <!-- <button @click='btnclick'>btn</button> -->
+      <!-- 事件冒泡 点击btn divclick也会被点击 -->
+      <!-- 阻止事件冒泡的方式： .stop -->
+      <button @click.stop="btnclick">btn</button>
+    </div>
+
+    <form action="Baidu">
+      <input type="submit" value="提交" @click.prevent='submit'>
+      <!-- 这里并不会执行submit点击事件 因为表单事件有个默认的表单提交 -->
+      <!-- 因此阻止默认事件 .prevent  (阻止默认事件的方法 .prevent事件修饰符)-->
+    </form>
+
+    <input type="text" @keyup.enter='keyup'>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello world'
+      },
+      methods: {
+        divclick: function () {
+          console.log('divclick');
+        },
+        btnclick: function () {
+          console.log('btnclick');
+        },
+        submit: function () {
+          console.log('submit')
+        },
+        keyup: function () {
+          console.log('keyup')
+        }
+      },
+    })
+  </script>
+</body>
+</html>

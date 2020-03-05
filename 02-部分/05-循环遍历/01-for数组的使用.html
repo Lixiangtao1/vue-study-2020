@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+  <!-- v-for指令的使用 -->
+  <div id="app">
+    <ul>
+      <li v-for="item in array">{{item}}</li>
+      <button @click="btn">按钮</button>
+    </ul>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        array: ['a','b','c']
+      },
+      methods: {
+        btn () {
+          // 注意并不是所有的 方法都能够做到响应式的
+          // push pop shift unshift splice sort reverse  这些数组的方法可以做到响应式
+          this.array.push('aaa');
+
+          // 这种方式就无法做到响应式
+          this.array[0] = 'bbbb';
+        }
+      },
+    })
+  </script>
+</body>
+</html>

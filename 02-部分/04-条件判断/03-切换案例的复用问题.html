@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 当用户在输入账号时，已经输入了一半但是想切换邮箱登录  
+    // 问题： 此时输入的内容会带到切换后的邮箱登录方式的input框中
+
+    // 原因： 是因为vue的处理机制的方式 因为vue在处理dom渲染时，会进行一个虚拟dom的过程 出于性能考虑
+    // 会对一些重复的元素进行复用 而不会再去创建新的元素
+
+    // 解决方式：对每一个input加一个key 当key 的值相同时就会复用 不同时则不会复用
+  </script>
+</body>
+</html>
