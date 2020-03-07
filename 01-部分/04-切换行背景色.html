@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in movies" :class="{active: currentIndex === index}" @click="btn(index)">{{index}} {{item}}</li>
+        </ul>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data: {
+                message: '这是一个demo',
+                movies: ['海王','战狼','美人鱼','哪吒'],
+                currentIndex: 0
+            },
+            methods: {
+                btn (index) {
+                    this.currentIndex = index
+                }
+            }
+        })
+    </script>
+</body> 
+</html>
