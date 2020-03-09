@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <div v-if="data.length">
+            <table border="1" cellpadding="0" cellspacing="0" style="width:550px;height: 80px;text-align: center;">
+                <tr>
+                    <th>编号</th>
+                    <th>书籍名称</th>
+                    <th>出版日期</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                    <th>操作</th>
+                </tr>
+                <tr v-for="(item,index) in data">
+                    <td style="width: 100px;height: 60px;">{{index+1}}</td>
+                    <td style="width: 200px;">{{item.name}}</td>
+                    <td style="width: 150px;">{{item.date}}</td>
+                    <td style="width: 150px;">{{item.price | showPrice}}</td>
+                    <td style="width: 150px;">
+                        <button @click="btn1(index)" :disabled="(item.count <= 1)">-</button>
+                        {{item.count}}
+                        <button @click="btn2(index)">+</button>
+                    </td>
+                    <td style="width: 100px;"><button @click="remove(index)">删除</button></td>
+                </tr>
+            </table>
+            <h2>总价格: {{totalPrice | showPrice}}</h2>
+        </div>
+        <div v-else>
+            <h1 style="color: red;">您还没有添加商品到购物车,购物车为空!</h1>
+        </div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                data:[
+                    { name:'算法导论', date:'2020-03-07', price:53, count: 1, id:0001 },
+                    { name:'UNIX编程艺术', date:'2020-03-08', price:63, count: 1, id:0002 },
+                    { name:'JavaScript', date:'2020-03-09', price:73, count: 1, id:0003 },
+                    { name:'CSS揭秘', date:'2020-03-10', price:83, count: 1, id:0004 }
+                ],
+                // currentIndex: 0,
+                
+            },
+            filters: {
+                showPrice (price) {
+                    return '¥' + price.toFixed(2);
+                }
+            },
+            computed: {
+                totalPrice () {
+                    let totalPrice = 0;
+                    for (let i = 0; i < this.data.length; i++) {
+                        totalPrice += this.data[i].price * this.data[i].count; 
+                    }
+                    return totalPrice;
+                }
+            },
+            methods: {
+                remove (index) {
+                    this.data.splice(index,1);
+                },
+                //加 
+                btn2 (index) {
+                    this.data[index].count++ 
+                },
+                // 减
+                btn1 (index) {
+                    this.data[index].count--
+                }
+            }
+        })
+    </script>
+</body>
+</html>
