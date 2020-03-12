@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <!-- 1.lazy修饰符  作用：只有在失去焦点时或者按回车键的时候才会更新数据 -->
+        <input type="text" v-model.lazy="message">
+        <h2>输入的内容是： {{message}}</h2>
+
+        <!-- 2.number修饰符 type为number时 输入框只能输入数字 -->
+        <input type="number" v-model.number="label" >
+        <h2>{{label}}---{{typeof label}}</h2>
+
+        <!-- trim修饰符 去除首尾空格 -->
+        <input type="text" v-model.trim="data">
+        <h2>输入内容为： {{data}}</h2>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                message: 'hello world',
+                label: '',
+                data: ''
+            }
+        })
+    </script>
+</body>
+</html>

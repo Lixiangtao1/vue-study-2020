@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <label>
+            <input type="checkbox" value="agree" v-model="flag" >同意协议
+        </label>
+        <br>
+        <button :disabled="!flag">下一步</button>
+        <h2>flag的值为：{{flag}}</h2>
+
+        <input type="checkbox" value="篮球" v-model="hobbies">篮球
+        <input type="checkbox" value="排球" v-model="hobbies">排球
+        <input type="checkbox" value="足球" v-model="hobbies">足球
+        <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
+        <br>
+        <h2>您的爱好有：{{hobbies}}</h2>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data: {
+                flag: false, //单选框
+                hobbies: [] //多选框
+            }
+        })
+
+        // 总结： label的使用，好处是点击文字部分同样可以选择
+        // 多选框需要使用数组变量   复选框则可以使用布尔值
+
+        // checkbox 的单选框的 一个变量 往往可以控制两个事件
+
+    </script>
+</body>
+</html>
