@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <myzj2></myzj2>
+    </div>
+    <script>
+        // 1.创造第一个组件构造器 (子组件)
+        const CMP1 = Vue.extend({
+            template:`
+                <div>
+                    <h2>我是标题2</h2>
+                    <p>hello world </p>
+                    <p>hello everyone</p>    
+                </div>
+            `
+        })
+        // 2.创造第二个构造器  (父组件)
+        const CMP2 = Vue.extend({
+            template:`
+                <div>
+                    <h2>我是标题2</h2>
+                    <p>hello world </p>
+                    <p>hello everyone</p>
+                    <myzj1></myzj1>    
+                </div>
+            `,
+            components: {
+                myzj1: CMP1 
+            }
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+ 
+            },
+            components:{
+                myzj2: CMP2
+            }
+        })
+    </script>
+</body>
+</html>

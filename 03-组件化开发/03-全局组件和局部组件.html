@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <myzujian></myzujian>
+        <!-- 使用组件必须要在vue实例中 -->
+    </div>
+    <div id="app2">
+        <myzujian></myzujian>
+    </div>
+    <script>
+        // 1.创造组件构造器
+        const CMP = Vue.extend({
+            template:`
+                <div>
+                    <h2>哈喽, 你好！</h2>
+                    <p>hello world</p>
+                    <p>hello everyone</p>
+                </div>
+            `
+        })
+        // 2.注册组件 (全局注册组件的方式)
+        // Vue.component('myzujian',CMP)
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+ 
+            },
+            // 局部注册组件 可注册多个  理解components中的key:value
+            components: {
+                myzujian: CMP
+            }
+        })
+        const vm2 = new Vue({
+            el: '#app2',
+            data: {
+ 
+            }
+        })
+    </script>
+</body>
+</html>
