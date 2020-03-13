@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+  <!-- v-for指令的使用 -->
+  <div id="app">
+    <ul>
+      <li v-for="item in array">{{item}}</li>
+      <button @click="btn">按钮</button>
+    </ul>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        array: ['a','b','c']
+      },
+      methods: {
+        btn () {
+          // 注意并不是所有的 方法都能够做到响应式的
+          // push pop shift unshift splice sort reverse  这些数组的方法可以做到响应式
+          this.array.push('aaa');
+
+          // 这种方式就无法做到响应式  通过索引值改变元素是不能做到响应式的
+          this.array[0] = 'bbbb';
+
+          // splice的作用: 删除/插入/替换
+          // 1.删除： 第二个参数：是要删除的个数(如果没有传则删除之后的所有元素)
+          // 2.替换： 第二个参数：表示要替换几个元素  后面的是要替换的元素
+          // 3.插入： 第二个参数为0 , 并且后面是所要插入的元素
+        }
+      },
+    })
+  </script>
+</body>
+</html>
