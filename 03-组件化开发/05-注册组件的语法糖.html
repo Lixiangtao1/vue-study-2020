@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <myzj></myzj>
+        <myzj2></myzj2>
+    </div>
+    <script>
+        // 注册组件的语法糖形式
+        // 1.创造组件的构造器
+        // const CMP = Vue.extend({
+        //     template:`
+        //     <div>
+        //         <h2>我是标题</h2>
+        //         <p>我是内容</p>
+        //     </div>
+        //     `
+        // })
+        // // 2.注册组件
+        // Vue.component('myzj',CMP)
+
+
+        // 语法糖形式  (全局组件)
+        Vue.component('myzj',{
+            template:`
+            <div>
+                <h2>我是全局组件</h2>
+                <p>我是内容</p>
+            </div>
+            `
+        })
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+ 
+            },
+            // 局部组件
+            components: {
+                'myzj2': {
+                    template:`
+                         <div>
+                            <h2>我是局部组件2</h2>
+                            <p>我是内容</p>
+                         </div>
+                    `
+                }
+            }
+        })
+    </script>
+</body>
+</html>
