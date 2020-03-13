@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <myzj></myzj>
+    </div>
+    <!-- // 1.写在script里 -->
+    <script type="text\x-template" id="CMP">
+        <div>
+            <h2>我是标题</h2>
+            <p>我是内容</p>
+            <p>{{title}}</p>
+        </div>
+    </script>
+    <!-- 结论： 
+    
+        组件是不能够访问vue实例的数据的    vue实例相当于组件树的根组件  组件应该是有自己单独保存数据的地方
+    -->
+    <script>
+
+        // 组件模板的抽离
+        // 注册组件：
+        // Vue.component('myzj',{
+        //     template:'#CMP'
+        // })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                title:'哈哈哈'
+            },
+            components: {
+                myzj: {
+                    template:'#CMP'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
