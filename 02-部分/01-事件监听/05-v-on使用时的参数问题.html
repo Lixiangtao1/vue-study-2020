@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button @click="click1(123)">btn1</button>
+    <button @click="click2">btn2</button>
+    <!-- 当方法或者函数需要参数的时候 而在写方法定义时没有写参数 则会将浏览器默认的event事件对象作为参数传递到方法中去 -->
+    <button @click="click3(abcd, $event)">btn3</button>
+    <!-- 如果在定义方法时参数(不是纯数值的参数)，不加引号浏览器会将其视作变量对待，会去data中找改变量，找到就用，找不到则undefined
+        如果想要使用浏览器的默认时间对象作为参数，需要在讲event前加$, $event
+        
+    -->
+  </div>
+  <script>
+    // v-on有参数时需要带() 无参数时可以省略 但是当在 mastach语法中不能省略
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello world',
+        abcd: 'haha'
+      },
+      methods: {
+        click1: function (abc) {
+          console.log(abc)
+        },
+        click2: function (name) {
+          console.log(name) //mouseEvent对象 (浏览器内部对象)
+        },
+        click3: function (abc,event) {
+          console.log(abc,event); //haha  mouseEvent对象
+        }
+      },
+    })
+  </script>
+</body>
+</html>

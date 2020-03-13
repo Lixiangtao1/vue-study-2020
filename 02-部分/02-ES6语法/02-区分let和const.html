@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 区分let和const 
+        1.let： 当变量需要改变时
+        2.const: 当变量不需要改变时
+    ES5的var是没有跨级作用域的（if/for）但是函数是有块级作用域的 这是函数闭包的本质
+    ES6的let是有会计作用域的（if/for）
+
+
+    const：修饰符修饰的是一个常量 ，一般不会被再次赋值
+    注意： 在ES6中，优先使用const，只有当修饰符需要被修改的时候才会使用let
+    -->
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+        var btns = document.getElementsByTagName('button');
+        for (var i = 0; i < btns.length; i++) {
+            /* btns[i].addEventListener('click', function () {
+                console.log('点击的是第' + i + '个按钮');
+            }) */
+            ( function (i) {
+                btns[i].addEventListener('click', function () {
+                    console.log('点击的是第' + (i+1) + '个按钮');
+                })
+            })(i)
+        }
+
+        // 直接使用let 的块级作用域
+
+
+        // 
+        
+    </script>
+</html>

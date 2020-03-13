@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+  <div id="app">
+    <!-- v-if: 当isShow为false时, v-if所修饰的元素会消失掉-->
+    <h2 v-if="isShow" id="aaa">{{message}}</h2>
+
+    <!-- v-show: 当isShow为false时, v-show所修饰的元素会添加一个display: none-->
+    <h2 v-show="isShow" id="bbb">{{message}}</h2>
+
+
+    <!-- 如何选择；当只是使用一次时可以使用v-if 
+                  当只用多次频繁切换时使用v-show
+    -->
+  </div>
+  <script>
+    const vm = new Vue({
+      el: 'app',
+      data: {
+        message: 'hello world',
+        isShow: true
+      }
+    })
+  </script>
+</body>
+</html>
