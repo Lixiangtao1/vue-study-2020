@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <label>
+            <input type="radio" value="男" v-model="sex">男
+       </label>
+        <label>
+            <input type="radio" value="女" v-model="sex">女
+        </label>
+
+        <!-- 给input添加name属性能够实现互斥   v-model 的变量相同时也能够实现互斥 -->
+        <h2>您的性别是：{{sex}}</h2>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                el:'#app',
+                sex:''
+            }
+        })
+    </script>
+</body>
+</html>

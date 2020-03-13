@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <!-- <input type="text" v-model="message">
+        <h2>{{message}}</h2>  -->
+        <!-- <input type="text" :value="message" @input="changeValue"> -->
+        <input type="text" :value="message" @input="message = $event.target.value" >
+        <h2>{{message}}</h2>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello world'
+            },
+            methods: {
+                // changeValue(event) {
+                //     // 注意event的使用
+                //     console.log(event)
+                //     this.message = event.target.value
+                // }
+            }
+            // 总结： v-model其实就是一个语法糖
+            // 是由v-bind:value  绑定 和  v-on 监听input事件 构成
+            // v-bind动态绑定到input    @input 监听输入框的输入值再将值赋给message
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <!-- 3.使用组件 -->
+        <myzujian></myzujian>
+        <myzujian></myzujian>
+        <myzujian></myzujian>
+    </div>
+    <script>
+        //1. 构建组件化构造器
+        const CMD = Vue.extend({
+            template:`
+            <div>
+                <h2>哈喽, 你好！</h2>
+                <p>hello world</p>
+                <p>hello everyone</p>
+            </div>
+            `
+        })
+        // 2.注册组件
+        Vue.component('myzujian',CMD)
+
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+ 
+            }
+        })
+    </script>
+</body>
+</html>
