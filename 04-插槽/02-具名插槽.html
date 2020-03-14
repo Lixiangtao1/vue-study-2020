@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <cmp><span slot="center">标题</span><span slot="left">返回</span></cmp>
+    </div>
+    <template id="cmd">
+        <div>
+            <slot name="left">左边</slot>
+            <slot name="center">中间</slot>
+            <slot name="right">右边</slot>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+ 
+            },
+            components: {
+                cmp: {
+                    template: '#cmd'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
