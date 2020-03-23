@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <cpn :number1="num1" :number2="num2" @changenum1="changenum1" @changenum2="changenum2"></cpn>
+    </div>
+    <template id="cmp">
+        <div>
+            <h2>props:{{number1}}</h2>
+            <h2>data:{{dnumber1}}</h2>
+            <!-- <input type="text" v-model="dnumber1"> -->
+            <input type="text" :value="dnumber1" @input="changeData1" >
+            <br><br>
+            <h2>props:{{number2}}</h2>
+            <!-- props数据要想跟data数据变化，则根实例数据呀=要变  -->
+            <h2>data:{{dnumber2}}</h2>
+            <!-- <input type="text" v-model="dnumber2"> -->
+            <input type="text" :value="dnumber2" @input="changeData2">
+
+
+            <!-- 需求： 下面的数字是上面的100倍  上面的数字是下面的1/100 -->
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                num1: 1,
+                num2: 0
+            },
+            components: {
+                cpn: {
+                    template: '#cmp',
+                    props:{
+                        number1: Number,
+                        number2: Number
+                    },
+                    data () {
+                        return {
+                            dnumber1: this.number1,
+                            dnumber2: this.number2
+                        }
+                    },
+                    methods: {
+                        changeData1 (event) {
+                            this.dnumber1 = event.target.value;
+                            this.$emit('changenum1',this.dnumber1);
+                            this.dnumber2 = this.dnumber1 * 100;
+                            this.$emit('changenum2',this.dnumber2);
+                        },
+                        changeData2 (event) {
+                            this.dnumber2 = event.target.value;
+                            this.$emit('changenum2',this.dnumber2);
+                            this.dnumber1 = this.dnumber2 / 100;
+                            this.$emit('changenum1',this.dnumber1)
+                        },
+                        
+                    }
+                },
+                
+            },
+            methods: {
+                changenum1 (value) {
+                    this.num1 = parseFloat(value)
+                    // console.log(this.num1)
+                },
+                changenum2 (value) {
+                    this.num2 = parseFloat(value)
+                }
+
+
+
+
+
+
+
+
+
+
+                  
+            }
+        })
+    </script>
+</body>
+</html>

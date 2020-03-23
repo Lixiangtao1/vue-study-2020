@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <child @itemclick="parentClick"></child>
+        <!-- itemclick就是子组件传过来的事件  当触发子组件的同时 父组件响应-->
+    </div>
+    <template id="cmp">
+        <div>
+            <button v-for="item in list" @click="btnClick(item)">{{item.name}}</button>
+            <!-- 此处的btn事件需要带上参数 否则会默认传浏览器对象 -->
+        </div>
+    </template>
+    <script>
+        // 1.注册子组件
+        const child = {
+            template:'#cmp',
+            data () {
+                return {
+                    list:[
+                        {id: '0001', name: '家用家电'},
+                        {id: '0002', name: '生活用品'},
+                        {id: '0003', name: '电子设备'},
+                        {id: '0004', name: '办公用品'}
+                    ]
+                }
+            },
+            methods: {
+                btnClick (item) {
+                    // console.log(item);
+                    this.$emit('itemclick',item);
+                    // 第一个参数为父组件的事件名称  第二个参数为事件参数
+                }
+            }
+        }
+        const vm = new Vue({
+            el: '#app',
+            data: {
+ 
+            },
+            components:{
+                child
+            },
+            methods: {
+                parentClick (item) {
+                    console.log(item)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
