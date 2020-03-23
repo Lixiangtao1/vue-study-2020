@@ -11,3 +11,9 @@ import { name, age, height } from './info'
 console.log(name);
 console.log(age);
 console.log(height);
+
+
+// webpack (loader将所有文本pack不能识别的文件转换为js模块化文件)
+// loader(转换器) 被用于转换某些类型的模块
+
+// plugins(插件)的作用：打包优化和压缩

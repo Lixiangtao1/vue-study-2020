@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+  <div id="app">
+    <div ref="msgDiv">{{msg}}</div>
+    <div v-if="msg1">Message got outside $nextTick: {{msg1}}</div>
+    <div v-if="msg2">Message got inside $nextTick: {{msg2}}</div>
+    <div v-if="msg3">Message got outside $nextTick: {{msg3}}</div>
+    <button @click="btnClick">
+      按钮
+    </button>
+  </div>
+  <script>
+    const vm = new Vue({
+      el:'#app',
+      data: {
+        msg: 'Hello world',
+        msg1: '',
+        msg2: '',
+        msg3: ''
+      },
+      methods: {
+        btnClick () {
+          this.msg = 'hello everyone!!!';
+          this.msg1 = this.$refs.msgDiv.innerHTML;
+          this.$nextTick(() => {
+            this.msg2 = this.$refs.msgDiv.innerHTML;
+          })
+          this.msg3 = this.$refs.msgDiv.innerHTML;
+          
+          //总结：当msg的值变化时,此时msg1 和msg2 都没有改变值，还是原来的msg值 'Hello world'
+          // 因此当在created钩子函数中进行的DOM操作, 一定要放在$nextTick()回调函数中进行
+          // this.$nextTick()将回调的内容延迟到下次DOM执行更新时
+
+          // 原理:因为当在created()钩子函数执行的时候,还未进行任何的DOM渲染,此时的DOM操作无效
+          //所以此时需要将js代码放到$nextTick()回调函数中，与之对应的就是mounted()钩子函数
+        }
+      },
+    })
+  </script>
+</body>
+</html>
