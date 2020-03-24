@@ -20,3 +20,6 @@ console.log(height);
 // 3.引入CSS文件
 require('./css/body.css')
 // 由于webpack只能处理js文件之间的依赖   并不能将css文件图片等转化，所以引入了loader
+
+// 4.引入less文件
+require('./css/body.less')

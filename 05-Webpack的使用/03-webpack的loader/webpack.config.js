@@ -15,7 +15,16 @@ module.exports = {
                 // css-loader只负责将css文件进行加载,并不能将样式添加到build.js包中
                 // style-loader 能够将css文件中的样式添加到DOM中
 
+            },
+            // 配置less 
+            {
+                test: /\.less$/,
+                use: ['style-loader','css-loader','less-loader']
+                // 使用less文件时，不仅需要安装less-loader开发依赖,还需要安装运行时依赖less
+                // 同时配置less时 需要使用到的['style-loader','css-loader','less-loader']
             }
         ]
     }
 }
+    // 在packge.json 文件中script配置脚本 dev开发依赖  运行时依赖
+    // 
