@@ -14,12 +14,13 @@ console.log(height);
 
 // webpack main.js --output-filename bundle.js --output-path . --mode development
 
-// 或者webpack main.js -o bundle.js --mode development 就可以了
+// 或者webpack main.js -o bundle.js --mode development 
 
 
 // 3.引入CSS文件
-require('./css/body.css')
+require('./css/body.css')   
 // 由于webpack只能处理js文件之间的依赖   并不能将css文件图片等转化，所以引入了loader
 
 // 4.引入less文件
 require('./css/body.less')
+document.writeln('hello world')
