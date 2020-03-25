@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let content = [
+      {name:1,age:1},
+      {name:2,age:2},
+      {name:3,age:3},
+      {name:4,age:4},
+    ]
+    let tableData = [
+      {name:1,age:1},
+      {name:2,age:2},
+      {name:3,age:3},
+      {name:4,age:4},
+      {name:5,age:5},
+      {name:6,age:6},
+      {name:7,age:7},
+      {name:8,age:8}
+    ]
+    content.forEach((item,index) => {
+      tableData.push(item);
+        for (let i = 0; i < tableData.length; i++) {
+          for (let j = i+1; j < tableData.length; j++) {
+              if (tableData[i].name == tableData[j].name) {
+                tableData.splice(j,1);
+                j--;
+              }else if (tableData.length === index) {
+            alert (8)
+            return
+          }
+            }
+          
+        }  
+        
+    });
+    console.log(tableData)
+  </script>
+</body>
+</html>

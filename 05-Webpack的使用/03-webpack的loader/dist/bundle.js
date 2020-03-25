@@ -57,106 +57,14 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(2);
-// 入口文件
-
-// 需求： 在这里使用add mul 函数打印
-//1. 使用Common.js模块化的规范
-const { add, mul } = __webpack_require__ (1); // 引入mathUtil.js文件
-console.log(add(10,20));
-console.log(mul(10,20));
-
-// 2.使用ES6的模块化规范
-
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name */]);
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* age */]);
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* height */]);
-
-// webpack main.js --output-filename bundle.js --output-path . --mode development
-
-// 或者webpack main.js -o bundle.js --mode development 就可以了
-
-
-// 3.引入CSS文件
-__webpack_require__(3)
-// 由于webpack只能处理js文件之间的依赖   并不能将css文件图片等转化，所以引入了loader
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-function add(num1, num2) {
-    return num1 + num2;
-} 
-function mul(num1, num2) {
-    return num1 * num2;
-} 
-
-module.exports = {
-    add,
-    mul
-}
-
-// Common.js模块化规范
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-const name = 'Xiaoming';
-/* harmony export (immutable) */ __webpack_exports__["c"] = name;
-
-const age = 18;
-/* harmony export (immutable) */ __webpack_exports__["a"] = age;
-
-const height = '1.88';
-/* harmony export (immutable) */ __webpack_exports__["b"] = height;
-
-
-// ES6 模块化规范
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var api = __webpack_require__(4);
-            var content = __webpack_require__(5);
-
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-var exported = content.locals ? content.locals : {};
-
-
-
-module.exports = exported;
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -431,20 +339,7 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(6);
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.i, "body {\r\n    background-color: aqua;\r\n}", ""]);
-// Exports
-module.exports = exports;
-
-
-/***/ }),
-/* 6 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -542,6 +437,205 @@ function toComment(sourceMap) {
   var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
   return "/*# ".concat(data, " */");
 }
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(4);
+// 入口文件
+
+// 需求： 在这里使用add mul 函数打印
+//1. 使用Common.js模块化的规范
+const { add, mul } = __webpack_require__ (3); // 引入mathUtil.js文件
+console.log(add(10,20));
+console.log(mul(10,20));
+
+// 2.使用ES6的模块化规范
+
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name */]);
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* age */]);
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* height */]);
+
+// webpack main.js --output-filename bundle.js --output-path . --mode development
+
+// 或者webpack main.js -o bundle.js --mode development 
+
+
+// 3.引入CSS文件
+__webpack_require__(5)   
+// 由于webpack只能处理js文件之间的依赖   并不能将css文件图片等转化，所以引入了loader
+
+// 4.引入less文件
+__webpack_require__(9)
+document.writeln('hello world')
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+function add(num1, num2) {
+    return num1 + num2;
+} 
+function mul(num1, num2) {
+    return num1 * num2;
+} 
+
+module.exports = {
+    add,
+    mul
+}
+
+// Common.js模块化规范
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const name = 'Xiaoming';
+/* harmony export (immutable) */ __webpack_exports__["c"] = name;
+
+const age = 18;
+/* harmony export (immutable) */ __webpack_exports__["a"] = age;
+
+const height = '1.88';
+/* harmony export (immutable) */ __webpack_exports__["b"] = height;
+
+
+// ES6 模块化规范
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(0);
+            var content = __webpack_require__(6);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(1);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(7);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(8);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+// Module
+exports.push([module.i, "body {\r\n    /* background-color: aqua; */\r\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    // eslint-disable-next-line no-param-reassign
+    options = {};
+  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+
+
+  url = url && url.__esModule ? url.default : url;
+
+  if (typeof url !== 'string') {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    // eslint-disable-next-line no-param-reassign
+    url = url.slice(1, -1);
+  }
+
+  if (options.hash) {
+    // eslint-disable-next-line no-param-reassign
+    url += options.hash;
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, '\\n'), "\"");
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "51120faac9305305e4ce1d7724e2eec9.jpg");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(0);
+            var content = __webpack_require__(10);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(1);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "body {\n  font-size: 50px;\n  color: orange;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
 
 /***/ })
 /******/ ]);

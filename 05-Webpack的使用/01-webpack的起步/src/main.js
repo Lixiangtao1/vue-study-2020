@@ -12,6 +12,8 @@ console.log(name);
 console.log(age);
 console.log(height);
 
-// webpack main.js --output-filename bundle.js --output-path . --mode development
 
-// 或者webpack main.js -o bundle.js --mode development 就可以了
+// webpack (loader将所有文本pack不能识别的文件转换为js模块化文件)
+// loader(转换器) 被用于转换某些类型的模块
+
+// plugins(插件)的作用：打包优化和压缩
