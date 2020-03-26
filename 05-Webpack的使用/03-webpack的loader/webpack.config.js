@@ -5,7 +5,7 @@ module.exports = {
     output: {               //打包文件（一般是一个对象）
         path: path.resolve(__dirname, 'dist'),           //绝对路径（需要引入node中的path)
         filename: 'bundle.js',
-        publicPath: 'dist/',   //涉及到url
+        publicPath: 'dist/',   //涉及到url下的打包目录 会生成dist下的目录
     },
     module:{
         rules:[
@@ -41,7 +41,8 @@ module.exports = {
                 // 同时配置less时 需要使用到的['style-loader','css-loader','less-loader']
                 // 因为less文件需要转成css文件, css文件加载到DOM上需要使用到style-loader依赖
             },
-            // 配置url-loader
+            // 配置url-loader  (图片转换)
+            // file-loader(一般不需要配置) 
             {
                 test: /\.(png|jpg|gif|jpeg|psd)$/,
                 use: [
@@ -49,9 +50,12 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         // 当加载的图片大小小于limit的值,会将图片编译成base64字符串形式
-                      limit: 10240
+                        limit: 10240,
                         // 当加载图片大小大于limit的值时,需要使用file-loader依赖进行加载(该依赖不需要配置)
-                        // 添加依赖仍然加载不出图片,因为打包时将图片打包到dist文件夹中去,需要在输出文件的配置下添加路径配置 
+                        // 添加依赖仍然加载不出图片,因为打包时将图片打包到dist文件夹中去,需要在输出文件的配置下添加路径配置
+                        
+                        // 配置图片文件夹并重新命名  原名称+8位哈希值+原后缀扩展名称 (.用来拼接)
+                        name: 'img/[name].[hash:8].[etc]'
                     }
                   }
                 ]
