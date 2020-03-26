@@ -596,7 +596,7 @@ module.exports = function (url, options) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "51120faac9305305e4ce1d7724e2eec9.jpg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "img/test.51120faa.[etc]");
 
 /***/ }),
 /* 9 */
