@@ -17,7 +17,7 @@ module.exports = {
                 // style-loader 能够将css文件中的样式添加到DOM中
 
             },
-            // 配置less 
+            // 配置less (先将less文件转化为css文件,再将css文件中的样式添加到DOM中)
             {
                 test: /\.less$/,
                 use: [
@@ -60,8 +60,10 @@ module.exports = {
                   }
                 ]
             }
+
         ]
     }
 }
     // 在packge.json 文件中script配置脚本 dev开发依赖  运行时依赖
-    // 
+
+    //

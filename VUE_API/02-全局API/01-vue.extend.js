@@ -19,5 +19,5 @@ let example = new Profile().$mount('#app');
 // 将vue的实例对象挂载到dom上   挂载到实例对象上
 // $mount() 可以将vue实例挂载到dom上
 // 注意在Vue.extend中 data必须是一个函数形式
-document.body.appendChild(example,$el);
+// document.body.appendChild(example,$el);
 
