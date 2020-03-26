@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <child :cmovie="movie" :cmessage="message"></child>
+    </div>
+    <template id="zzj">
+        <div>
+            <h2>这是子组件</h2>
+            <h3>{{cmovie}}</h3>
+            <h3>{{cmessage}}</h3>
+        </div>
+    </template>
+    <script>
+        const child = {
+            template:'#zzj',
+            data () {
+                return {}
+            },
+            props: {
+                // 设定默认值 和必传
+                cmovie:{
+                    // 当所要传入的数据类型为对象或者数组时,默认值必须是一个function 而且必须要要有返回值
+                    type: Array,
+                    default () {
+                        return {
+
+                        }
+                    },
+                    required: true
+                },
+                cmessage:{
+                    type: String,
+                    default: '哈哈哈哈，默认值',
+                    required: true
+                }
+            }
+        }
+
+
+       // vue实例当做父组件
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                movie:['花木兰','海王','起跑线'],
+                message: 'hello world'
+            },
+            components: {
+                child
+            }
+        })
+    </script>
+</body>
+</html>

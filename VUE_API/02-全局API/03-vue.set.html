@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in list">{{item}}</li>
+    </ul>
+    <button @click="btnClick">Vue.set</button>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        list: [1,2,3,4]
+        // list: [
+        //   {name: 'a', id: '111'},
+        //   {name: 'b', id: '222'},
+        //   {name: 'c', id: '333'},
+        //   {name: 'd', id: '444'}
+        // ]
+      },
+      methods: {
+        btnClick () {
+          // Vue.set(this.list, 1, {name:'hello',id: '222'})
+          // this.list[1].name = 'hello'
+          // this.list.push({name:'哈哈',id:'444'});
+          // Vue.set(this.list, 1, {name: '呵呵', id: '444'})
+          // this.list[1] = 'halou';
+          // Vue.set(this.list, 1, 'haha')
+          // Vue.delete(this.list, 1)
+        }
+
+
+        // 1.总结：当数组类型为普通数组时,通过索引的的方式不能实现数据的双向绑定； 可以使用Vue.set来实现
+        // 解决方法：Vue.set(target, index, value)
+
+        // 2.当数组类型为数组对象形式时,可以通过索引的形式实现双向数据绑定
+
+
+        // 在JS中，会默认将普通数组的索引看做是属性，各元素看成是属性值，当在vue中改变索引实现数据变化时，虽然
+        // 其确实是添加了,但是vue中却检测不到对象属性的添加或者删除
+        // 而数组对象中属性和属性值是在已有的属性上添加和删除,vue是能够实现的
+      },
+    })
+  </script>
+</body>
+</html>

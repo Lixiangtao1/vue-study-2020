@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <cmp><span>span标签</span></cmp>
+        <cmp></cmp>
+        <cmp><i>i标签</i><h3>h3标题</h3></cmp>
+        <cmp></cmp>
+    </div>
+    <template id="cmd">
+        <div>
+            <h2>我是子组件</h2>
+            <p>我是子组件的内容</p>
+            <!-- 插槽里可以设置默认值 -->
+            <slot><button>按钮</button></slot>
+        </div>
+    </template>
+    <script>
+        // 1.插槽的基本使用 <slot></slot>
+        // 2.插槽可以设置默认值
+        // 3.可以在组件标签里使用多个值代替默认值
+        const vm = new Vue({
+            el: '#app',
+            data: {
+ 
+            },
+            components: {
+                cmp: {
+                    template:'#cmd',
+                }
+            }
+        })
+    </script>
+</body>
+</html>
