@@ -59,10 +59,25 @@ module.exports = {
                     }
                   }
                 ]
+            },
+            // 配置babel
+            {
+                test: /\.js$/,
+                // 排除对以下两个文件夹中的js转换
+                exclude: /(node_modules|bower_components)/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
+                ]
             }
 
         ]
-    }
+    },
+    mode: 'development'
 }
     // 在packge.json 文件中script配置脚本 dev开发依赖  运行时依赖
 
