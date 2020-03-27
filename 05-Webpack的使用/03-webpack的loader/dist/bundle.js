@@ -446,67 +446,59 @@ function toComment(sourceMap) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(4);
 // 入口文件
-
 // 需求： 在这里使用add mul 函数打印
 //1. 使用Common.js模块化的规范
-const { add, mul } = __webpack_require__ (3); // 引入mathUtil.js文件
-console.log(add(10,20));
-console.log(mul(10,20));
+var _require = __webpack_require__(3),
+    add = _require.add,
+    mul = _require.mul; // 引入mathUtil.js文件
 
-// 2.使用ES6的模块化规范
+
+console.log(add(10, 20));
+console.log(mul(10, 20)); // 2.使用ES6的模块化规范
+
 
 console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name */]);
 console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* age */]);
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* height */]);
-
-// webpack main.js --output-filename bundle.js --output-path . --mode development
-
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* height */]); // webpack main.js --output-filename bundle.js --output-path . --mode development
 // 或者webpack main.js -o bundle.js --mode development 
-
-
 // 3.引入CSS文件
-__webpack_require__(5)   
-// 由于webpack只能处理js文件之间的依赖   并不能将css文件图片等转化，所以引入了loader
 
+__webpack_require__(5); // 由于webpack只能处理js文件之间的依赖   并不能将css文件图片等转化，所以引入了loader
 // 4.引入less文件
-__webpack_require__(9)
-document.writeln('hello world')
+
+
+__webpack_require__(9);
+
+document.writeln('hello world');
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
 function add(num1, num2) {
-    return num1 + num2;
-} 
-function mul(num1, num2) {
-    return num1 * num2;
-} 
-
-module.exports = {
-    add,
-    mul
+  return num1 + num2;
 }
 
-// Common.js模块化规范
+function mul(num1, num2) {
+  return num1 * num2;
+}
 
+module.exports = {
+  add: add,
+  mul: mul
+}; // Common.js模块化规范
 
 /***/ }),
 /* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-const name = 'Xiaoming';
-/* harmony export (immutable) */ __webpack_exports__["c"] = name;
-
-const age = 18;
-/* harmony export (immutable) */ __webpack_exports__["a"] = age;
-
-const height = '1.88';
-/* harmony export (immutable) */ __webpack_exports__["b"] = height;
-
-
-// ES6 模块化规范
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return name; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return age; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return height; });
+var name = 'Xiaoming';
+var age = 18;
+var height = '1.88'; // ES6 模块化规范
 
 /***/ }),
 /* 5 */

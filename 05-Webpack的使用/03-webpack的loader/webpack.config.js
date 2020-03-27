@@ -59,6 +59,21 @@ module.exports = {
                     }
                   }
                 ]
+            },
+            // 配置babel (将ES6语法转换为ES5的语法)
+            {
+                test: /\.js$/,
+                // 排除以下两个文件夹中的js文件
+                exclude: /(node_modules|bower_components)/,
+                use:[
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                            // presets: ['es2015']
+                        }
+                    }
+                ]
             }
 
         ]
