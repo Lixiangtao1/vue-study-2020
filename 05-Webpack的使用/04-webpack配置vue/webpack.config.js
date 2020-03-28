@@ -74,7 +74,19 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            
+            //配置vue-loader
+            // You may need an appropriate loader to handle this file type.打包报错（vue-loader版本过高）
+            // 在开发依赖中有去更改vue-loader版本问题
+            {
+                test: /\.vue$/,
+                use:[
+                    {
+                        loader:'vue-loader'
+                    }
+                ]
+            } 
 
         ]
     },
@@ -84,10 +96,11 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js'
         }
     }
-    // 为什么会有这个配置？  
+    // 为什么会有这个配置？ (否则会有报错 提示默认选择了runtime-only)  
     // (vue 在最终发布打包构建了两类版本  一种是runtime-only:代码中不能有template 此方式不能编译有任何template 
     //  另一种是runtime-complier:代码中可以有template complier可以编译template )
     // 原因： 解决默认使用  runtime-only(vue.runtime.esm.js)      使用带有complier的构建版本js文件(vue.esm.js)
+
 
 
 }
