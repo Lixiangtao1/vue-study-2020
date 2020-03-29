@@ -113,7 +113,16 @@ module.exports = {
         }),
         // 压缩插件 uglifyjs-webpack-plugin
         new UglifyjsWebpackPlugin()
-    ]
+    ],
+
+    // 搭建本地服务器 (webpack-dev-serve) 配置webpack-dev-server
+    devServer: {
+        contentBase: './dist',  //为哪一个文件夹提供本地服务,默认是根文件夹，这里是./dist
+        port:8080, //端口号,默认(不写)是80端口
+        inline: true, //页面实时刷新
+        // historyApiFallback: 在SPA页面中,依赖HTML5的history模式
+    }
+
 
 }
  

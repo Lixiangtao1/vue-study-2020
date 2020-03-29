@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack-dev-server --open"
+    
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -20,7 +22,8 @@
     "url-loader": "^4.0.0",
     "vue-loader": "^13.0.0",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
   },
   "author": "lxt",
   "license": "ISC",
