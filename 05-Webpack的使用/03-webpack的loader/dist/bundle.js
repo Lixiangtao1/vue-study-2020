@@ -81,6 +81,7 @@
 eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"body {\\n  font-size: 50px;\\n  color: orange;\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/css/body.less?./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js");
 
 /***/ }),
+<<<<<<< HEAD
 
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/css/body.css":
 /*!****************************************************************!*\
@@ -92,6 +93,56 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nvar ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../image/test.jpg */ \"./src/image/test.jpg\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\nvar ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);\n// Module\nexports.push([module.i, \"body {\\r\\n    /* background-color: aqua; */\\r\\n    background: url(\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \");\\r\\n}\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/css/body.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
+=======
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(4);
+// 入口文件
+// 需求： 在这里使用add mul 函数打印
+//1. 使用Common.js模块化的规范
+var _require = __webpack_require__(3),
+    add = _require.add,
+    mul = _require.mul; // 引入mathUtil.js文件
+
+
+console.log(add(10, 20));
+console.log(mul(10, 20)); // 2.使用ES6的模块化规范
+
+
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name */]);
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* age */]);
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* height */]); // webpack main.js --output-filename bundle.js --output-path . --mode development
+// 或者webpack main.js -o bundle.js --mode development 
+// 3.引入CSS文件
+
+__webpack_require__(5); // 由于webpack只能处理js文件之间的依赖   并不能将css文件图片等转化，所以引入了loader
+// 4.引入less文件
+
+
+__webpack_require__(9);
+
+document.writeln('hello world');
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+function mul(num1, num2) {
+  return num1 * num2;
+}
+
+module.exports = {
+  add: add,
+  mul: mul
+}; // Common.js模块化规范
+>>>>>>> home
 
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
@@ -101,7 +152,16 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 eval("\r\n\r\n/*\r\n  MIT License http://www.opensource.org/licenses/mit-license.php\r\n  Author Tobias Koppers @sokra\r\n*/\r\n// css base code, injected by the css-loader\r\n// eslint-disable-next-line func-names\r\nmodule.exports = function (useSourceMap) {\r\n  var list = []; // return the list of modules as css string\r\n\r\n  list.toString = function toString() {\r\n    return this.map(function (item) {\r\n      var content = cssWithMappingToString(item, useSourceMap);\r\n\r\n      if (item[2]) {\r\n        return \"@media \".concat(item[2], \" {\").concat(content, \"}\");\r\n      }\r\n\r\n      return content;\r\n    }).join('');\r\n  }; // import a list of modules into the list\r\n  // eslint-disable-next-line func-names\r\n\r\n\r\n  list.i = function (modules, mediaQuery, dedupe) {\r\n    if (typeof modules === 'string') {\r\n      // eslint-disable-next-line no-param-reassign\r\n      modules = [[null, modules, '']];\r\n    }\r\n\r\n    var alreadyImportedModules = {};\r\n\r\n    if (dedupe) {\r\n      for (var i = 0; i < this.length; i++) {\r\n        // eslint-disable-next-line prefer-destructuring\r\n        var id = this[i][0];\r\n\r\n        if (id != null) {\r\n          alreadyImportedModules[id] = true;\r\n        }\r\n      }\r\n    }\r\n\r\n    for (var _i = 0; _i < modules.length; _i++) {\r\n      var item = [].concat(modules[_i]);\r\n\r\n      if (dedupe && alreadyImportedModules[item[0]]) {\r\n        // eslint-disable-next-line no-continue\r\n        continue;\r\n      }\r\n\r\n      if (mediaQuery) {\r\n        if (!item[2]) {\r\n          item[2] = mediaQuery;\r\n        } else {\r\n          item[2] = \"\".concat(mediaQuery, \" and \").concat(item[2]);\r\n        }\r\n      }\r\n\r\n      list.push(item);\r\n    }\r\n  };\r\n\r\n  return list;\r\n};\r\n\r\nfunction cssWithMappingToString(item, useSourceMap) {\r\n  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring\r\n\r\n  var cssMapping = item[3];\r\n\r\n  if (!cssMapping) {\r\n    return content;\r\n  }\r\n\r\n  if (useSourceMap && typeof btoa === 'function') {\r\n    var sourceMapping = toComment(cssMapping);\r\n    var sourceURLs = cssMapping.sources.map(function (source) {\r\n      return \"/*# sourceURL=\".concat(cssMapping.sourceRoot || '').concat(source, \" */\");\r\n    });\r\n    return [content].concat(sourceURLs).concat([sourceMapping]).join('\\n');\r\n  }\r\n\r\n  return [content].join('\\n');\r\n} // Adapted from convert-source-map (MIT)\r\n\r\n\r\nfunction toComment(sourceMap) {\r\n  // eslint-disable-next-line no-undef\r\n  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));\r\n  var data = \"sourceMappingURL=data:application/json;charset=utf-8;base64,\".concat(base64);\r\n  return \"/*# \".concat(data, \" */\");\r\n}\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/api.js?");
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return name; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return age; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return height; });
+var name = 'Xiaoming';
+var age = 18;
+var height = '1.88'; // ES6 模块化规范
+>>>>>>> home
 
 /***/ }),
 
