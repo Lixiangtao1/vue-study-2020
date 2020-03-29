@@ -1,4 +1,6 @@
-const path = require('path')   //path这个包依赖于node
+const path = require('path')   //
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry:'./src/main.js',               //入口文件
@@ -95,13 +97,16 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
         }
-    }
+    },
     // 为什么会有这个配置？ (否则会有报错 提示默认选择了runtime-only)  
     // (vue 在最终发布打包构建了两类版本  一种是runtime-only:代码中不能有template 此方式不能编译有任何template 
     //  另一种是runtime-complier:代码中可以有template complier可以编译template )
     // 原因： 解决默认使用  runtime-only(vue.runtime.esm.js)      使用带有complier的构建版本js文件(vue.esm.js)
 
 
+    plugins:[
+        new HtmlWebpackPlugin()
+    ]
 
 }
  
