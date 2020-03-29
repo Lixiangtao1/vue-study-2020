@@ -1,6 +1,7 @@
 const path = require('path')   //
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin') //将html文件打包到dist
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin') // 将打包的js文件压缩
 
 module.exports = {
     entry:'./src/main.js',               //入口文件
@@ -105,10 +106,13 @@ module.exports = {
     // 原因： 解决默认使用  runtime-only(vue.runtime.esm.js)      使用带有complier的构建版本js文件(vue.esm.js)
 
 
+    // 对index.html文件打包到dist (此处的template会找到同级文件的html中的body中的#app  会在dist中自动生成)
     plugins:[
         new HtmlWebpackPlugin({
             template: 'index.html'
-        })
+        }),
+        // 压缩插件 uglifyjs-webpack-plugin
+        new UglifyjsWebpackPlugin()
     ]
 
 }
