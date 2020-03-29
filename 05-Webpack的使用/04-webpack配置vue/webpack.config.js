@@ -7,7 +7,8 @@ module.exports = {
     output: {               //打包文件（一般是一个对象）
         path: path.resolve(__dirname, 'dist'),           //绝对路径（需要引入node中的path)
         filename: 'bundle.js',
-        publicPath: 'dist/',   //涉及到url下的打包目录 会生成dist下的目录
+        // publicPath: 'dist/',   //涉及到url下的打包目录 会生成dist下的目录
+        publicPath: './'
     },
     module:{
         rules:[
@@ -105,7 +106,9 @@ module.exports = {
 
 
     plugins:[
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        })
     ]
 
 }
