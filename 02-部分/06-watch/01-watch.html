@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+  <div id="app">
+    <h3>Question:</h3>
+    <input type="text" v-model="question">
+    <h3>Answer:</h3>
+    <p>{{answer}}</p>
+  </div>
+  <script>
+    const vm = new Vue({
+      el:'#app',
+      data: {
+        question: '',
+        answer: '请先输入问题'
+      },
+      watch: {
+        // 数据变化时触发函数
+        Qusetion: function (newValue, OldValue) {
+          this.answer = '输入中。。。'
+          this.debouncedGetAnswer()
+        }
+      },
+    })
+  </script>
+</body>
+</html>
