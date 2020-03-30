@@ -13,7 +13,7 @@ const webpackConfig = require('./webpack.prod.conf')
 
 const spinner = ora('building for production...')
 spinner.start()
-// 此处的rm是remove的缩写  当再次执行打包时,会先将之前的打包文件删除,重新进行打包
+
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err
   webpack(webpackConfig, (err, stats) => {

@@ -1,6 +1,6 @@
-# vue-cli2-test
+# 02-cli2-runtime-only
 
-> test vue/cli2
+> runtime-only
 
 ## Build Setup
 
@@ -19,13 +19,3 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-static 此文件夹最终会原封不动复制到dist文件夹(存放静态文件 图片等)
-1.babelrc 对js代码进行转换
-2.editorconfig 代码规范 (缩进,编码格式...)
-3.gitignore 对一些代码限制上传到git
-4.postcssrc 对一些css文件进行转化
-5.eslintrc  
-6.package-lock.json npm install后实际安装的npm包版本等
-7.eslintignore 
-
