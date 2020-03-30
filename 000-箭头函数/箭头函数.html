@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // setTimeout(() => {
+        //     console.log(this)
+        // }, 1000)
+
+        // setTimeout(function () {
+        //     console.log(this)
+        // }, 1000)
+
+
+        // // 箭头函数是如何查找this的
+        // // 向外层函数一层一层查找 
+        // const obj = {
+        //     aaa () {
+        //         setTimeout(() => {
+        //             console.log(this) //aaa()
+        //         }, 1000)
+
+        //         setTimeout(function () {
+        //             console.log(this) //window
+        //         }, 1000)
+        //     }
+        // }
+        // obj.aaa()
+
+
+        // setTimeout(() => {
+        //     setTimeout(()=>{
+        //         console.log(this) //window
+        //     })
+        // }, 1000)
+
+        // setTimeout(function () {
+        //     setTimeout(function () {
+        //         console.log(this) //window
+        //     })
+        // }, 1000)
+
+
+
+        const obj = {
+            aaa () {
+                setTimeout(() => {
+                    setTimeout(() => {
+                        console.log(this); //obj
+                        
+                    })
+                }, 1000)
+
+                setTimeout(function () {
+                    setTimeout(function () {
+                        console.log(this) //window
+                    })
+                }, 1000)
+            }
+        }
+        obj.aaa()
+
+
+    </script>
+</body>
+
+</html>
