@@ -68,7 +68,8 @@ export default {
   .top_banner{
     height:64px;
     line-height: 64px;
-    background-color:#FFF;
+    background-color:black;
+    // border: 2px solid #ccc;
     width:100%;
     position: absolute;
     top:0;
@@ -89,7 +90,7 @@ export default {
 .layout_wrapper{
   width: 100%;
   height: 100%;
-  background-color:#f8f8f8;
+  background-color:black;
   .box{
     float:left;
   }
