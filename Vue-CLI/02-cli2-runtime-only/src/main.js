@@ -14,5 +14,8 @@ new Vue({
 // ---> (渲染)DOM
 
 
-// runtime-only 运行机制
+// runtime-only 运行机制 
 // render() ---> virtual DOM ---> DOM
+
+
+// 总结：runtime-only (运行性能更高)
