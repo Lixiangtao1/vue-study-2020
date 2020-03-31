@@ -66,18 +66,18 @@ export default {
 </script>
 <style lang="scss" scoped>
   .top_banner{
-  height:64px;
-  line-height: 64px;
-  background-color:#FFF;
-  width:100%;
-  position: absolute;
-  top:0;
-  padding-left: 20px;
-  // z-index: 1;
-  box-sizing: border-box;
-  // box-shadow: 0px 2px 10px #eee;
-  // -webkit-box-shadow: 0px 2px 10px #eee;
-  // -moz-box-shadow: 0px 2px 10px #eee;
+    height:64px;
+    line-height: 64px;
+    background-color:#FFF;
+    width:100%;
+    position: absolute;
+    top:0;
+    padding-left: 20px;
+    // z-index: 1;
+    box-sizing: border-box;
+    // box-shadow: 0px 2px 10px #eee;
+    // -webkit-box-shadow: 0px 2px 10px #eee;
+    // -moz-box-shadow: 0px 2px 10px #eee;
 }
 .main_wrapper{
   position: absolute;
