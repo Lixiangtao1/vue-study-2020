@@ -1,7 +1,7 @@
 <template>
 <div class="layout_wrapper">
     <div class="box top_banner">
-      <h3>MENU</h3>
+      MENU
     </div>
     <div class="box main_wrapper">
 
@@ -15,9 +15,9 @@
           >
               <template v-for="(item,index) in routeNames">
                   <el-menu-item :key="index" >
-                    <router-link class="itemTitle" tag="div" :to="item.path">
+                    <router-link class="itemTitle" tag="div" :to="item.path" style="color:black">
                       <i class="el-icon-document"></i>
-                      <span>{{item.name}}</span>
+                      <span>{{item.meta.name}}</span>
                     </router-link>
                   </el-menu-item>
                   <!-- <el-submenu :key="index" v-if="!item.noDropdown">

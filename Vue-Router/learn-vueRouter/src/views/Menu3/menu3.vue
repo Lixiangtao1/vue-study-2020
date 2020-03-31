@@ -1,18 +1,11 @@
 <template>
   <div>
-    <h2>menu1</h2>
+    <h2>menu3</h2>
   </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      
-    }
-  },
-  methods: {
-    
-  },
+  
 }
 </script>
 <style scoped>
