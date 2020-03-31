@@ -43,5 +43,6 @@ export default new Router({
         }
       ]
     }
-  ]
+  ],
+  mode:'history' //默认为hash模式
 })

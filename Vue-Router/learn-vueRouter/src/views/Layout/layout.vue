@@ -15,6 +15,9 @@
           >
               <template v-for="(item,index) in routeNames">
                   <el-menu-item :key="index" >
+                    <!-- router-link属性： tag属性(更改渲染成何种标签)  replace(更改成replaceState)阻止返回模式
+                      router-link-active属性 点击切换才会有的属性  
+                     -->
                     <router-link class="itemTitle" tag="div" :to="item.path" style="color:black">
                       <i class="el-icon-document"></i>
                       <span>{{item.meta.name}}</span>
@@ -54,6 +57,9 @@ export default {
     // handleClose(key, keyPath) {
     //   console.log(key, keyPath);
     // }
+    // this.$router   vue-Router（源码中）在所有的组件都加了$router属性  所以可以使用this.$router获取
+    // this.$router.push('/home') 使用的其实是pushState()   可以返回
+    // this.$router.replace('/home')  使用的是replaceState() 没有返回
   },
   mounted() {
     // console.log(Router)
