@@ -47,6 +47,7 @@
   </div>
 </template>
 <script>
+// import router from '../../router';
 export default {
   data() {
       return {
@@ -62,10 +63,17 @@ export default {
         }
       }
     },
+    created() {
+      console.log(this.$router);
+    },
     methods: {
       onSubmit() {
-        console.log('submit!');
-      }
+        // console.log('submit!');
+        this.$router.push({
+          name: 'MENU2'
+        })
+      },
+
     }
 };
 </script>

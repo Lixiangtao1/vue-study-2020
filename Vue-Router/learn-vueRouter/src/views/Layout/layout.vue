@@ -1,14 +1,14 @@
 <template>
 <div class="layout_wrapper">
     <div class="box top_banner">
-      MENU
+      <span style="color:orange">Hello World!</span>
     </div>
     <div class="box main_wrapper">
 
       <div class="box left_nav">
           <el-menu
             class="el-menu-vertical-demo"
-            background-color="#fff"
+            background-color="black"
             text-color="rgb(130,130,130)"
             router
             unique-opened
@@ -20,7 +20,7 @@
                      -->
                     <router-link class="itemTitle" tag="div" :to="item.path" style="color:black">
                       <i class="el-icon-document"></i>
-                      <span>{{item.meta.name}}</span>
+                      <span style="color:orange;font-size:20px;">{{item.meta.name}}</span>
                     </router-link>
                   </el-menu-item>
                   <!-- <el-submenu :key="index" v-if="!item.noDropdown">
@@ -79,9 +79,9 @@ export default {
     width:100%;
     position: absolute;
     top:0;
-    padding-left: 20px;
+    // padding-left: 20px;
     // z-index: 1;
-    box-sizing: border-box;
+    // box-sizing: border-box;
     // box-shadow: 0px 2px 10px #eee;
     // -webkit-box-shadow: 0px 2px 10px #eee;
     // -moz-box-shadow: 0px 2px 10px #eee;
@@ -101,47 +101,48 @@ export default {
     float:left;
   }
   .left_nav{
-    width: 180px;
+    width: 15%;
     height: 100%;
-    background:#FFF;
-    border-right: 1px solid #f5f5f5;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    background:black;
+    // border-right: 1px solid #f5f5f5;
+    // -webkit-box-sizing: border-box;
+    // -moz-box-sizing: border-box;
+    // box-sizing: border-box;
     // box-shadow: 2px 0px 10px #eee;
     // -webkit-box-shadow: 2px 0px 10px #eee;
     // -moz-box-shadow: 2px 0px 10px #eee;
-    .logo{
-      height: 70px;
-      width: 100%;
-      line-height: 70px;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-      .icon-liebiao{
-        color: rgb(102,102,102);
-        font-size: 22px;
-        cursor: pointer;
-      }
-    }
+    // .logo{
+    //   height: 70px;
+    //   width: 100%;
+    //   line-height: 70px;
+    //   text-align: center;
+    //   // border-bottom: 1px solid #eee;
+    //   .icon-liebiao{
+    //     color: rgb(102,102,102);
+    //     font-size: 22px;
+    //     cursor: pointer;
+    //   }
+    // }
 
   }
   .right_content{
-    width: calc(100% - 180px);
+    // width: calc(100% - 180px);
+    width: 85%;
     height: 100%;
     padding:20px 20px 25px;
     box-sizing: border-box;
     overflow-y: auto;
   }
-  .box_logout{
-    float: right;
-    width: 200px;
-    height: 64px;
-    line-height: 64px;
-    .iconfont{
-      font-size: 24px;
-      cursor: pointer;
-    }
-  }
+  // .box_logout{
+  //   float: right;
+  //   width: 200px;
+  //   height: 64px;
+  //   line-height: 64px;
+  //   .iconfont{
+  //     font-size: 24px;
+  //     cursor: pointer;
+  //   }
+  // }
 }
 
 </style>

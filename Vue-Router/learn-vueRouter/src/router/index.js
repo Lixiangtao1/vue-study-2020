@@ -9,6 +9,7 @@ import MENU3 from './../views/Menu3/menu3.vue'
 import MENU4 from './../views/Menu4/menu4.vue'
 
 Vue.use(Router)
+// Router插件
 
 export default new Router({
   routes: [
@@ -44,5 +45,5 @@ export default new Router({
       ]
     }
   ],
-  mode:'history' //默认为hash模式
+  // mode:'history' //默认为hash模式
 })
