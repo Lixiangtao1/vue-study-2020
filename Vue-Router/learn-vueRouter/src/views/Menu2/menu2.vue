@@ -6,9 +6,14 @@
     <!-- <slot name="slot1">
       <el-button @click="btnClick">按钮</el-button>
     </slot> -->
-    <slot>
+    <!-- <slot>
       <h3>我是默认的插槽</h3>
-    </slot>
+    </slot> -->
+    <h3>菜单二</h3>
+    <router-link to="/menu2/message">消息</router-link>
+    <router-link to="/menu2/news">新闻</router-link>
+    <router-view></router-view>
+    <!-- router-view (渲染组件) -->
   </div>
 </template>
 <script>
