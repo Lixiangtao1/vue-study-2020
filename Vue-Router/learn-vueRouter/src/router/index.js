@@ -14,10 +14,16 @@ import Router from 'vue-router'
 // 打包后的文件一般分为三类vender(第三方插件的打包)  (自己业务逻辑的代码) 还有就是一些底层的支撑(解析js语法处理js的)
 const LAYOUT = () => import('./../views/Layout/layout.vue')
 const MENU1 = () => import('./../views/Menu1/menu1.vue')
+
 const MENU2 = () => import('./../views/Menu2/menu2.vue')
 const MESSAGE = () => import('./../views/Menu2/message.vue')
 const NEWS = () => import('./../views/Menu2/news.vue')
+
 const MENU3 = () => import('./../views/Menu3/menu3.vue')
+const MENU3_EMAIL = () => import('./../views/Menu3/menu3_email.vue') 
+const MENU3_PROFILE = () => import('./../views/Menu3/menu3_profile.vue') 
+const MENU3_USER = () => import('./../views/Menu3/menu3_user.vue') 
+
 const MENU4 = () => import('./../views/Menu4/menu4.vue')
 
 Vue.use(Router)
@@ -42,8 +48,9 @@ export default new Router({
           name: 'MENU2',
           component: MENU2,
           meta:{name: '菜单二'},
-          redirect:'message',
+          redirect:'/menu2/message',
           children: [
+            // 注意: 如果子组件是嵌入某组件中,并不产生跳转,此时path的路径问题注意要不要加/
             {
               path: 'message',
               component: MESSAGE
@@ -58,7 +65,27 @@ export default new Router({
           path: '/menu3',
           name: 'MENU3',
           component: MENU3,
-          meta: {name: '菜单三'}
+          meta: {name: '菜单三'},
+          // menu3实现嵌套视图
+          redirect: '/menu3/email',
+          children: [
+            {
+              path: 'email',
+              // component: MENU3_EMAIL
+              components: {
+                default: MENU3_EMAIL
+                // default: NEWS
+              }
+            },
+            {
+              path: 'profile',
+              // 此路径下有两个组件 默认显示一个
+              components:{
+                default: MENU3_PROFILE,
+                user: MENU3_USER
+              } 
+            }
+          ]
         },
         {
           path: '/menu4',
