@@ -10,7 +10,7 @@
       <h3>替换插槽</h3>
     </menu2> -->
     <h3>菜单三</h3>
-    <router-link to="/menu3/email">email</router-link>
+    <router-link :to="{path:'/menu3/email',query:{name:'zhangsan',age:18,heoght:1.88}}" @click="btnClick">email</router-link>
     <router-link to="/menu3/profile">profile</router-link><br>
     <button @click="click">新增user组件</button>
     <router-view></router-view>
@@ -34,13 +34,12 @@ export default {
     news
   },
   created() {
-    console.log(this.$route)
+    console.log(this.$$router)
   },
   methods: {
     btnClick() {
-      this.$router.push({
-        name:'MENU4'
-      })
+      
+      
     },
     click() {
       this.flag = !this.flag;

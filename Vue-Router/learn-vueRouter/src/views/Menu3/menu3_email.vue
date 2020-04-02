@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2 style="color:red">This is Email</h2>
+    <h2>{{$route.query}}</h2>
   </div> 
 </template>
 <script>
