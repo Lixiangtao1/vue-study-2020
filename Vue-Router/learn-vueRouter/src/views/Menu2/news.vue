@@ -12,7 +12,7 @@
       <li v-for="(item,index) in list" @click="listClick(item)">{{item.name}}</li>
     </ul>
   </div> 
-</template>
+</template> 
 <script>
 export default {
   data() {
