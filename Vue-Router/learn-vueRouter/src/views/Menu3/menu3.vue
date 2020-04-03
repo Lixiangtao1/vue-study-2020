@@ -17,6 +17,10 @@
     <router-view name="user" v-show="flag"></router-view>
     <!-- <button @itemClick="Sum"></button> -->
     <news @itemClick="parentClick"></news>
+    <!-- <button @click="changePage(item)">跳转到menu4</button> -->
+    <ul>
+      <li v-for="(item,index) in list" @click="changePage(item,index)">跳转到menu4</li>
+    </ul>
   </div>
 </template>
 <script>
@@ -27,7 +31,13 @@ export default {
     return {
       msg:'hello world',
       flag: false,
-      count: 0
+      count: 0,
+      list: [
+        {name:'张三',id:'0001'},
+        {name:'李四',id:'0002'},
+        {name:'小明',id:'0003'},
+        {name:'小红',id:'0004'},
+      ]
     }
   },
   components: {
@@ -48,6 +58,19 @@ export default {
       // this.$emit('btnClick');
       // console.log(this.$emit('btnClick'))
       console.log(item)
+    },
+    changePage(item,index) {
+      this.$router.push({
+        name: 'MENU4',
+        params: {
+          // 路由带参数方式
+          // row: this.msg
+          row: item.name
+        },
+        query:{
+          view: item.id
+        }
+      })
     }
   },
 }

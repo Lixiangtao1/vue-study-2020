@@ -183,7 +183,8 @@ export default {
     }
   },
   created() {
-    this.getData()
+    this.getData(),
+    console.log(this.$route)
   },
   methods: {
     getData () {
