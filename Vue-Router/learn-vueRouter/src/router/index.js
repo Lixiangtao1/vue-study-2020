@@ -26,6 +26,13 @@ const MENU3_USER = () => import('./../views/Menu3/menu3_user.vue')
 
 const MENU4 = () => import('./../views/Menu4/menu4.vue')
 
+const MENU5 = () => import('./../views/Menu5/menu5.vue')
+const MENU6 = () => import('./../views/Menu6/menu6.vue')
+const SUBMENU_01 = () => import('./../views/Menu6/subMenu6/subMenu_01.vue')
+const SUBMENU_02 = () => import('./../views/Menu6/subMenu6/subMenu_02.vue')
+
+const MENU7 = () => import('./../views/Menu7/menu7.vue')
+
 Vue.use(Router)
 // Router插件
 
@@ -92,6 +99,41 @@ export default new Router({
           name: 'MENU4',
           component: MENU4,
           meta: {name: '菜单四'}
+        },
+        {
+          path: '/menu5',
+          name: 'MENU5',
+          component: MENU5,
+          meta: {
+            name: '菜单五'
+          }
+        },
+        {
+          path: '/menu6',
+          // name: 'MENU6',
+          component: MENU6,
+          // redirect: '/menu6/subMenu_06',
+          meta: {name:'菜单六'},
+          children: [
+            {
+              path: '/menu6/subMenu_01',
+              name: 'SUBMENU_01',
+              component: SUBMENU_01,
+              meta: {name: '子菜单01'}
+            },
+            {
+              path: '/menu6/subMenu_02',
+              name: 'SUBMENU_02',
+              component: SUBMENU_02,
+              meta: {name: '子菜单02'}
+            }
+          ]
+        },
+        {
+          path: '/menu7',
+          name: 'MENU7',
+          component: MENU7,
+          meta: {name:'菜单七'}
         }
       ]
     }
