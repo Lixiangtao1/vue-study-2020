@@ -6,7 +6,7 @@
     <div class="box main_wrapper">
       <div class="box left_nav">
         <!-- el-menu中的router属性: 是否使用vue-router模式,默认为false, 当为true时,index为路由的path来进行跳转 -->
-        <!-- <el-menu
+        <el-menu
             class="el-menu-vertical-demo"
             background-color="black"
             text-color="rgb(130,130,130)"
@@ -15,15 +15,15 @@
           >
               <template v-for="(item,index) in routeNames">
                   <el-menu-item :key="index" >
-                    router-link属性： tag属性(更改渲染成何种标签)  replace(更改成replaceState)阻止返回模式
-                      router-link-active属性 点击切换才会有的属性  
+                    <!-- router-link属性： tag属性(更改渲染成何种标签)  replace(更改成replaceState)阻止返回模式
+                      router-link-active属性 点击切换才会有的属性   -->
                     
                     <router-link class="itemTitle" tag="div" :to="item.path" style="color:black">
                       <i class="el-icon-document"></i>
                       <span style="color:orange;font-size:20px;">{{item.meta.name}}</span>
                     </router-link>
                   </el-menu-item>
-                  <el-submenu :key="index">
+                  <!-- <el-submenu :key="index">
                       <template slot="title">
                           <i class="el-icon-document"></i>
                           <span>{{item.meta.name}}</span>
@@ -31,24 +31,23 @@
                       <el-menu-item :key="index"  v-for="(childItem) in item.children" >
                           {{childItem.meta.name}}
                       </el-menu-item>
-                  </el-submenu>
-                  
+                  </el-submenu> -->
               </template>
-        </el-menu>-->
-        <el-menu
+        </el-menu>
+        <!-- <el-menu
           class="el-menu-vertical-demo"
           background-color="black"
           text-color="orange"
           router
           unique-opened
-        >
-          <div>
-            <!-- <el-submenu :index="item.path" v-for="(item, index) in routeNames" :key="index">
+        > -->
+          <!-- <div>
+            <el-submenu :index="item.path" v-for="(item, index) in routeNames" :key="index">
               <template slot="title">
                 <i class="el-icon-location" style="color: #E1CDA4;"></i>
                 <span>{{item.name}}</span>
-              </template> -->
-              <!-- <el-menu-item :index="childItem.path" v-for="(childrenItem,ind) in item.children" :key="index + ind">{{childItem.name}}</el-menu-item> -->
+              </template>
+              <el-menu-item :index="childItem.path" v-for="(childrenItem,ind) in item.children" :key="index + ind">{{childItem.name}}</el-menu-item>
             <el-submenu>
               <template slot="title">
                 <i class="el-icon-location"></i>
@@ -64,7 +63,7 @@
                 <el-menu-item index="menu4">选项1</el-menu-item>
               </el-submenu>
             </el-submenu>
-            <!--  -->
+
             <el-submenu>
               <template slot="title">
                 <i class="el-icon-location"></i>
@@ -76,18 +75,20 @@
             </el-submenu>
           </div>
 
-          <!-- <el-menu-item index="3" >
+          <el-menu-item index="3" >
             <i class="el-icon-document"></i>
             <span slot="title">导航三</span>
-          </el-menu-item>-->
-          <!-- <el-menu-item index="4">
+          </el-menu-item>
+          <el-menu-item index="4">
             <i class="el-icon-setting"></i>
             <span slot="title">导航四</span>
-          </el-menu-item>-->
-        </el-menu>
+          </el-menu-item>
+        </el-menu> -->
       </div>
       <div class="box right_content">
-        <router-view></router-view>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </div>
     </div>
   </div>
@@ -116,10 +117,10 @@ export default {
   mounted() {
     // console.log(Router)
     // console.log(Router.options)
-    console.log(Router.options.routes[0].children);
+    // console.log(Router.options.routes[0].children);
     this.routeNames = Router.options.routes[0].children;
-    console.log("------------------");
-    console.log(this.routeNames);
+    // console.log("------------------");
+    // console.log(this.routeNames);
     // console.log(this.$route);
     // console.log(this.$route.matched)
   }

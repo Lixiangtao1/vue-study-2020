@@ -44,7 +44,7 @@ export default {
     news
   },
   created() {
-    console.log(this.$$router)
+    console.log('menu3---created')
   },
   methods: {
     btnClick() {
@@ -57,7 +57,7 @@ export default {
     parentClick(item) {
       // this.$emit('btnClick');
       // console.log(this.$emit('btnClick'))
-      console.log(item)
+      // console.log(item)
     },
     changePage(item,index) {
       this.$router.push({
@@ -71,7 +71,10 @@ export default {
           view: item.id
         }
       })
-    }
+    },
+    destroyed() {
+      console.log('menu3----destroyed')
+    },
   },
 }
 </script>

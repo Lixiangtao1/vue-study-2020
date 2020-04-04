@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!-- 如果想要排除某个组件使用keep-alive缓存功能  只需在keep-alive添加属性exclude -->
+    <!-- <keep-alive :include="keepAlive"> -->
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
@@ -8,7 +12,12 @@
 import Router from './router/index.js'
 
 export default {
-  name: 'App'
+  name: 'App',
+  // computed: {
+  //   keepAlive() {
+  //     return this.$router.meta.keeplive
+  //   }
+  // }
 }
 </script>
 

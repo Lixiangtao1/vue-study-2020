@@ -36,7 +36,7 @@ const MENU7 = () => import('./../views/Menu7/menu7.vue')
 Vue.use(Router)
 // Router插件
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -55,11 +55,12 @@ export default new Router({
           name: 'MENU2',
           component: MENU2,
           meta:{name: '菜单二'},
-          redirect:'/menu2/message',
+          // redirect:'/menu2/message',
           children: [
             // 注意: 如果子组件是嵌入某组件中,并不产生跳转,此时path的路径问题注意要不要加/
             {
               path: 'message',
+              name: 'MESSAGE',
               component: MESSAGE
             },
             {
@@ -140,3 +141,22 @@ export default new Router({
   ],
   // mode:'history' //默认为hash模式
 })
+
+// 全局守卫 
+
+// beforeEach()  'guard' 前置守卫 在导航跳转的时候进行回调 有三个参数 1.next()必传 2.to就是route
+router.beforeEach((to, from, next) => {
+  // 导航守卫 1.next()是必传项
+  // 2.to: 其实就是一个一个的路由route
+  // 实现菜单栏和title匹配
+  // console.log(to)
+  document.title = to.matched[1].meta.name;
+  next()
+})
+
+// afterEach() 'hook(回调的意思)' 后置钩子 在路由跳转完成之后执行
+router.afterEach((to,from) => {
+  // console.log(to)
+})
+
+export default router
