@@ -64,7 +64,11 @@ export default {
       }
     },
     created() {
-      console.log(this.$router);
+      // console.log(this.$router);
+      console.log(this.$store.state.count)
+      console.log(this.$store)
+      console.log(this.$store.getters.doneTodos)
+      console.log(this.$store.commit('increment'))
     },
     methods: {
       onSubmit() {

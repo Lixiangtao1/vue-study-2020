@@ -1,0 +1,13 @@
+function test1(){
+  return new Promise((resolve, reject)=>{
+      let sino = parseInt(Math.random() * 6 +1)
+      setTimeout(()=>{
+          resolve(sino)
+      },3000)
+  })
+}
+async function test(){
+  let n =await test1()
+  console.log(n)
+}
+test()
