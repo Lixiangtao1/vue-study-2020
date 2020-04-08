@@ -19,7 +19,7 @@
     <news @itemClick="parentClick"></news>
     <!-- <button @click="changePage(item)">跳转到menu4</button> -->
     <ul>
-      <li v-for="(item,index) in list" @click="changePage(item,index)">跳转到menu4</li>
+      <!-- <li v-for="(item,index) in list" @click="changePage(item,index)">跳转到menu4</li> -->
     </ul>
   </div>
 </template>

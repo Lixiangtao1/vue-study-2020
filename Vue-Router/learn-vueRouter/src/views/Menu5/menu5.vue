@@ -54,7 +54,27 @@ export default {
     },
     // 响应式
     edit () {
-      this.$store.commit('UPDATE')
+      // this.$store.commit('UPDATE')
+      // this.$store.dispatch('updateInfo','我是payload') //可以传参数
+
+
+      // this.$store.dispatch('updateInfo', () => {
+      //   // 还可以传一个回调函数
+      //   console.log('执行成功，开始回调')
+      // })
+
+      // this.$store.dispatch('updateInfo',{
+      //   message: '这是参数',
+      //   success: () => {
+      //     console.log('执行成功的回调函数')
+      //   }
+      // })
+
+      this.$store
+      .dispatch('updateInfo','参数')
+      .then((res) => {
+        console.log(res)
+      })
     }
   },
 }
