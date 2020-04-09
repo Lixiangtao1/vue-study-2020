@@ -20,6 +20,7 @@
 </template>
 <script>
 import {INCREMENT, UPDATE, DECREMENT, INCREMENTCOUNT} from './../../store/mutation-types.js'
+import fetch from './../../utils/fetech.js'
 export default {
   data(){
     return {
@@ -79,6 +80,14 @@ export default {
         console.log(res)
       })
     }
+  },
+  created() {
+    fetch({
+      url: 'http://123.207.32.32:8000/home/multidata',
+      method: 'get',
+    }).then(res => {
+      console.log(res)
+    })
   },
 }
 </script>

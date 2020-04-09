@@ -3,6 +3,8 @@
     <el-table
       :header-cell-style="{background:'#eee'}"
       :data="Data"
+      :cell-style="cellStyle"
+      @cell-click="cellClick"
       style="width: 100%">
       <el-table-column
         prop="reportType"
@@ -312,7 +314,7 @@ export default {
       maps.set(2, '失败');
       return maps.get(cellValue) ? maps.get(cellValue) : '--';
     },
-    // 分页
+    // 分页 
     handleCurrentChange(page){
       console.log(page)
       if (page == 1) {
@@ -369,6 +371,17 @@ export default {
           return "一起赢好礼"
       }
     },
+
+    // 
+    cellStyle (val) {
+      if(val.column.label === '报表名称' || val.column.label === 'reportName') {
+        return 'cursor:pointer;text-align:center;'
+      }
+      return 'text-align:center'
+    },
+    cellClick () {
+      this.exportData()
+    }
 
   },
   
