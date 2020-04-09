@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>{{$store.state.msg1}}---vuex中的msg1</h2>
     <h2>This is Menu5 (Vuex--learn)</h2>
     <h2>{{counter}}</h2>
     <button @click="addtation">+</button>
@@ -18,7 +19,7 @@
   </div>
 </template>
 <script>
-import {INCREMENT, UPDATE} from './../../store/mutation-types.js'
+import {INCREMENT, UPDATE, DECREMENT, INCREMENTCOUNT} from './../../store/mutation-types.js'
 export default {
   data(){
     return {
@@ -36,14 +37,14 @@ export default {
   },
   methods: {
     addtation() {
-      this.$store.commit('INCREMENT')
+      this.$store.commit(INCREMENT)
     },
     dectation() {
-      this.$store.commit('decrement')
+      this.$store.commit(DECREMENT)
     },
     addCount(count) {
       // payload 还可以传个对象(参数不唯一时)
-      this.$store.commit('incrementCount',count)
+      this.$store.commit(INCREMENTCOUNT, count)
 
       // mutation 提交参数的风格
       // this.$store.commit({
@@ -57,6 +58,7 @@ export default {
       // this.$store.commit('UPDATE')
       // this.$store.dispatch('updateInfo','我是payload') //可以传参数
 
+      // 当存在异步操作时,将异步操作写在actions中,(此时不在是使用commit提交,而是使用dispatch)
 
       // this.$store.dispatch('updateInfo', () => {
       //   // 还可以传一个回调函数
@@ -70,6 +72,7 @@ export default {
       //   }
       // })
 
+      // Promise().then
       this.$store
       .dispatch('updateInfo','参数')
       .then((res) => {

@@ -26,3 +26,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 // history.back  = history.go(-1)   (go可以使用正负值，相当于入栈出栈)
 // history.replaceState(不能返回)
 // history.forward() == history.go(1)
+
+
+<!-- vuex -->
+#

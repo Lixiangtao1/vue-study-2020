@@ -2,13 +2,17 @@
   <div>
     <h2>This is Menu7</h2>
     <button @click="btnClick">按钮</button>
+    <h2>{{msg1}}</h2>
+    <h2>{{$store.state.msg1}}</h2>
+    <button @click="addtation">+</button>
+    <button @click="dectation">-</button>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      
+      msg1: 0
     }
   },
   created(){
@@ -33,6 +37,12 @@ export default {
       // 1.created: (创建组件之后就会回调的)
       // 2. mounted；(是在template被编译(挂载到dom上时)的时候进行回调的)
       // 3. updted: (页面刷新的是时候才会进行回调)
+    },
+    addtation() {
+      this.$store.commit('jia')
+    },
+    dectation() {
+      this.$store.commit('jian')
     }
   },
   destroyed() {
