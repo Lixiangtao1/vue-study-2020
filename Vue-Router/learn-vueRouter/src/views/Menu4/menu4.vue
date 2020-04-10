@@ -373,15 +373,15 @@ export default {
     },
 
     // 
-    cellStyle (val) {
-      if(val.column.label === '报表名称' || val.column.label === 'reportName') {
-        return 'cursor:pointer;text-align:center;'
-      }
-      return 'text-align:center'
-    },
-    cellClick () {
-      this.exportData()
-    }
+    // cellStyle (val) {
+    //   if(val.column.label === '报表名称' || val.column.label === 'reportName') {
+    //     return 'cursor:pointer;text-align:center;'
+    //   }
+    //   return 'text-align:center'
+    // },
+    // cellClick () {
+    //   this.exportData()
+    // }
 
   },
   

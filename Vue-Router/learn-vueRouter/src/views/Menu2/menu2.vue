@@ -62,7 +62,7 @@ export default {
   // deactivated() {
     // 这两个函数只有在使用keep-alive时才会被调用
   // },
-  beforeRouteLeave (to, from, next) {
+  beforeRouteLeave (to, from, next) { //离开活跃路由前
     // console.log(this.$route.path)
     this.path = this.$route.path;
     next()

@@ -21,7 +21,7 @@ service.interceptors.request.use(config => {
 
   config.headers['Content-Type'] = 'application/json;charset=UTF-8';
   // 设置请求体的格式
-  console.log(config); //config 配置参数
+  // console.log(config); //config 配置参数
   return config //必须要返回出去,否则无法请求
 },err => {
   console.log(err)

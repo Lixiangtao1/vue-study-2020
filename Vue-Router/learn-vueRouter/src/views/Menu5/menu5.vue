@@ -20,7 +20,8 @@
 </template>
 <script>
 import {INCREMENT, UPDATE, DECREMENT, INCREMENTCOUNT} from './../../store/mutation-types.js'
-import fetch from './../../utils/fetech.js'
+// import fetch from './../../utils/fetech.js'
+import { GetData } from './../Menu5_api/menu5Api.js'
 export default {
   data(){
     return {
@@ -37,6 +38,12 @@ export default {
     // }
   },
   methods: {
+    getData() {
+      GetData().then(res => {
+        console.log(res);
+        console.log(res.data)
+      })
+    },
     addtation() {
       this.$store.commit(INCREMENT)
     },
@@ -82,12 +89,13 @@ export default {
     }
   },
   created() {
-    fetch({
-      url: 'http://123.207.32.32:8000/home/multidata',
-      method: 'get',
-    }).then(res => {
-      console.log(res)
-    })
+    // fetch({
+    //   url: 'http://123.207.32.32:8000/home/multidata',
+    //   method: 'get',
+    // }).then(res => {
+    //   console.log(res)
+    // })
+    this.getData()
   },
 }
 </script>

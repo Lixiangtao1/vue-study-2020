@@ -33,6 +33,8 @@ const SUBMENU_02 = () => import('./../views/Menu6/subMenu6/subMenu_02.vue')
 
 const MENU7 = () => import('./../views/Menu7/menu7.vue')
 
+const MENU8 = () => import('./../views/Menu8/menu8.vue')
+
 Vue.use(Router)
 // Router插件
 
@@ -135,6 +137,12 @@ const router = new Router({
           name: 'MENU7',
           component: MENU7,
           meta: {name:'菜单七'}
+        },
+        {
+          path: '/menu8',
+          name: 'MENU8',
+          component: MENU8,
+          meta: {name: '菜单八'}
         }
       ]
     }
