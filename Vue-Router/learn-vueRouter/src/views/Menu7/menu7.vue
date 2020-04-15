@@ -21,6 +21,7 @@ export default {
   methods: {
     btnClick () {
       // 挂载到vue 原型上的方法,其组件中也可以使用
+      
 
       // 即：所有的组件都继承自vue的原型
       console.log(this.$route);

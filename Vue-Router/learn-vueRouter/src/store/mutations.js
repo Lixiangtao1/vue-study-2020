@@ -35,5 +35,9 @@ export default { // muatation 中必须是同步操作
   },
   jian(state) {
     state.msg1 --
+  },
+  todoList(state) {
+    console.log(state.todoList)
+    // return state.todoList
   }
 }
