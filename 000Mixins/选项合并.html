@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+</head>
+<body>
+  <div id="app">
+    <h2>{{msg}}</h2>
+  </div>
+  <script>
+    // 定义一个混入的对象
+    var mixin = {
+      data: function () {
+        return {
+          message: 'hello',
+          foo: 'abc'
+        }
+      }
+    }
+    // data中的数据会在内部进行递归合并, 发生冲突时以组件中的数据优先
+    new Vue({
+      mixins: [mixin],
+      data: function () {
+        return {
+          message: 'goodbye',
+          bar: 'def'
+        }
+      },
+      created: function () {
+        console.log(this.$data)
+        // { message: "goodbye", foo: "abc", bar: "def" }
+      }
+    })
+  </script>
+</body>
+</html>

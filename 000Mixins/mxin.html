@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+</head>
+<body>
+  <script>
+    const hunRu = {
+      created() {
+        this.hello()
+      },
+      methods: {
+        hello() {
+          console.log('this is hunRu');
+        }
+      },
+    } 
+    // 定义一个使用混入的组件 (注册组件) 混入对象的钩子函数在组件自身钩子之前调用
+    const Components = Vue.extend({
+      mixins: [hunRu]
+    })
+    // 使用组件
+    const component = new Components();
+
+  </script>
+</body>
+</html>
