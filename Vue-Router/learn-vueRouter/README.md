@@ -20,6 +20,15 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+# webpack的工作流程
+1.参数的解析
+2.找到入口文件
+3.使用各种loader进行编译成AST语法树
+4.遍历AST,收集依赖
+5.生成chunk
+6.找到出口文件
+
+
 
 // 什么是前端渲染,什么是后端渲染   单页面副应用阶段(SPA)
 // history.pushState (可返回,相当于进栈出栈)   history.pushState({},'','haha');

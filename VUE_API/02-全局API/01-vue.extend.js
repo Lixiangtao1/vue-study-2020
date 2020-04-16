@@ -1,4 +1,5 @@
 // Vue.extend创建构造器
+console.log(Vue)
 const Profile = Vue.extend({
   template: `
     <div>

@@ -10,7 +10,7 @@
 
 <script>
 import Router from './router/index.js'
-
+// import extend from './components/extends.js'
 export default {
   name: 'App',
   // computed: {

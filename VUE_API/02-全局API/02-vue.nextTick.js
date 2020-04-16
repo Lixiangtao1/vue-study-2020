@@ -9,3 +9,4 @@ const vm = new Vue({
     mag: 'haha'
   }
 })
+// $nextTick()返回的是一个promise对象,可以使用async/await 来使用

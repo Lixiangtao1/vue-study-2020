@@ -68,4 +68,3 @@ new Vue({
     }
 })
 // 注意： 当el 和 template 同时存在时, vue会自动处理将template 模板中的代码放在div#app 中去执行
-   

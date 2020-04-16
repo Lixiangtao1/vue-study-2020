@@ -38,6 +38,9 @@ const MENU8 = () => import('./../views/Menu8/menu8.vue')
 const MENU9 = () => import('./../views/Menu9/menu9.vue')
 const MENU10 = () => import('./../views/Menu10/menu10.vue')
 
+const MENU11 = () => import('./../views/Menu11/menu11.vue')
+const MENU_CREATE = () => import('./../views/Menu11/menu_create.vue')
+
 Vue.use(Router)
 // Router插件
 
@@ -158,6 +161,18 @@ const router = new Router({
           name: 'MENU10',
           component: MENU10,
           meta: {name: 'MENU10'}
+        },
+        {
+          path: '/menu11',
+          name: 'MENU11',
+          component: MENU11,
+          meta: {name: 'MENU11'}
+        },
+        {
+          path: '/menu_create',
+          name: 'MENU_CREATE',
+          component: MENU_CREATE,
+          meta: {name: 'MENU_CREATE'}
         }
       ]
     }
